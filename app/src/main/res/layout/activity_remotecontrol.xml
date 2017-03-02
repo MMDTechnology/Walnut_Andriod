@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#555555"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/riding_remote"
+        android:visibility="visible">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/remote_ride_forward"
+                android:id="@+id/remote_ride_forward"
+                android:layout_weight="0.5" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/remote_mode_switch"
+                android:background="@drawable/camera_switchcamera"
+                android:layout_gravity="left|top"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/remote_ride_forward_circle"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="100 %"
+                android:textColor="@color/whiteColor"
+                android:rotation="-90"
+                android:id="@+id/remote_ride_battery_label"
+                android:layout_gravity="left|bottom"
+                android:textSize="20dp"
+                android:layout_marginBottom="40dp" />
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="180dp"
+                android:layout_height="20dp"
+                android:id="@+id/remote_ride_battery_progress"
+                android:layout_gravity="left|center_vertical"
+                android:rotation="-90"
+                android:progress="100"
+                android:layout_marginLeft="-65dp"
+                android:progressTint="#24e6f2"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:rotation="-90"
+                android:id="@+id/exam_value"
+                android:layout_gravity="center_vertical|left"
+                android:textColor="@color/whiteColor"
+                android:textSize="20dp" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@color/ggColor"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:visibility="visible"></LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/remote_ride_backward"
+            android:id="@+id/remote_ride_backward"
+            android:layout_weight="0.5" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/remote_homebutton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/remote_home_icon"
+            />
+        <ImageView
+            android:id="@+id/blue_img"
+            android:layout_toRightOf="@id/remote_homebutton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/remote_bluetooth_icon"
+            />
+        <ImageView
+            android:id="@+id/sign_img"
+            android:layout_toRightOf="@id/blue_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/remote_signal_icon"
+            />
+        <ProgressBar
+            android:id="@+id/battery_progress"
+            android:layout_width="180dp"
+            android:layout_height="20dp"
+            android:progressTint="#24e6f2"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:background="#00E9AA"
+            android:layout_marginTop="25dp"
+            android:layout_centerInParent="true"
+            android:progress="100" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_toLeftOf="@id/battery_progress"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#FFFFFF"
+            android:id="@+id/remote_remainbattery"
+            android:text="100%"
+            />
+        <ImageButton
+            android:id="@+id/ledcolor_button"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:src="@drawable/remote_ledcolor_icon"
+            android:background="#00000000"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="35dp"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+        <ImageView
+            android:id="@+id/skate_view"
+            android:layout_width="150dp"
+            android:layout_height="220dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/remote_device_icon"
+            android:background="#00000000"
+            />
+        <TextView
+            android:id="@+id/speed_left"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/skate_view"
+            android:text="-00"
+            android:textSize="70dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="80dp"
+            android:textColor="#B4B4B4"
+            />
+        <TextView
+            android:id="@+id/km_left"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/speed_left"
+            android:layout_alignRight="@id/speed_left"
+            android:text="Km/h"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#B4B4B4" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/speed_left"
+            android:layout_below="@+id/km_left"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp">
+
+            <ImageButton
+                android:id="@+id/left_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/km_left"
+                android:src="@drawable/remote_control_backicon"
+                android:background="#00000000"
+                android:layout_gravity="center"
+                android:layout_alignTop="@+id/right_button"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="5dp" />
+
+            <maojian.android.walnut.RoundProgressBar
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/progressBar_left"
+                android:layout_gravity="center"
+                android:layout_alignTop="@+id/km_left" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/speed_right"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/skate_view"
+            android:text="00"
+            android:textSize="70dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="85dp"
+            android:textColor="#00E9AA"
+            />
+        <TextView
+            android:id="@+id/km_right"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/speed_right"
+            android:layout_alignRight="@id/speed_right"
+            android:text="Km/h"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#B4B4B4"
+            />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/speed_right"
+            android:layout_below="@+id/km_right"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="-8dp">
+
+            <ImageButton
+                android:id="@+id/right_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/km_right"
+                android:layout_alignLeft="@+id/km_right"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/remote_control_forwardicon"
+                android:background="#00000000"
+                android:layout_marginLeft="23dp" />
+
+            <maojian.android.walnut.RoundProgressBar
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/progressBar_right"
+                android:layout_gravity="center" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <ImageView
+        android:id="@+id/discover_profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center_vertical" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medium Text"
+        android:layout_gravity="left|center_vertical"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/discover_username"
+        android:layout_marginTop="35dp" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+    <TextView
+        android:layout_width="75dp"
+        android:layout_height="24dp"
+        android:text=""
+        android:id="@+id/discover_button"
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="35dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textIsSelectable="false"
+        android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

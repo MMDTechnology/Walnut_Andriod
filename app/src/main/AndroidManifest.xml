@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="maojian.android.walnut">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <!--<uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>-->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <!--分享-->
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"></uses-permission>
+
+    <application
+            android:name="maojian.android.walnut.AnyTimeApplication"
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
+        <service android:name="com.avos.avoscloud.PushService"/>
+        <activity
+                android:name="maojian.android.walnut.LoginActivity"
+                android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.RegisterActivity"
+                android:label="@string/app_name">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.ForgetPasswordActivity"
+                android:label="@string/app_name">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.MainActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustPan|stateHidden"
+                android:label="@string/app_name">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.FunspotActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.CommentActivity"
+                android:theme="@style/AppBaseTheme">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.DetailActivity"
+                android:theme="@style/AppBaseTheme">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.customProfileActivity"
+                android:theme="@style/AppBaseTheme">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.EditprofileActivity"
+                android:theme="@style/AppBaseTheme">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.ProfileFollowActivity"
+                android:theme="@style/AppBaseTheme">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.DeviceActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.TutVideoActivity"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.FeedbackActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.RemoteControlActivity"
+                android:screenOrientation="landscape"
+                android:configChanges="orientation|screenSize|keyboardHidden"
+                android:theme="@style/AppBaseTheme">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.CameraActivity"
+                android:configChanges="orientation|screenSize"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.ImagePicker.ImagePickerActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.ImagePicker.ProfilePickerActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.UploadActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.OrderActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.DiscountActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name="maojian.android.walnut.StoreWebActivity"
+                android:theme="@style/AppBaseTheme">
+        </activity>
+
+        <activity android:name="com.facebook.FacebookActivity"
+                  android:configChanges=
+                          "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+                  android:label="@string/app_name"/>
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
+        <service android:name="maojian.android.walnut.BluetoothLeService" android:enabled="true"/>
+
+        <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService"/>
+
+        <!--<activity-->
+        <!--android:name="com.tencent.tauth.AuthActivity"-->
+        <!--android:launchMode="singleTask"-->
+        <!--android:noHistory="true" >-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.VIEW" />-->
+
+        <!--<category android:name="android.intent.category.DEFAULT" />-->
+        <!--<category android:name="android.intent.category.BROWSABLE" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
+
+
+        <provider android:authorities="com.facebook.app.FacebookContentProvider437836289760648"
+                  android:name="com.facebook.FacebookContentProvider"
+                  android:exported="true"/>
+
+
+        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <meta-data
+                android:name="io.fabric.ApiKey"
+                android:value="609b90302151ce12583665911134a5dd04c7995b"/>
+
+        <!--分享-->
+        <activity
+                android:name="com.mob.tools.MobUIShell"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateHidden|adjustResize" >
+
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!--集成line客户端登录授权，需要添如下格式的过滤器-->
+            <intent-filter>
+                <data android:scheme="line.1477692153" />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+        <!--微信分享回调 -->
+        <activity
+                android:name=".wxapi.WXEntryActivity"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:exported="true"
+                android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

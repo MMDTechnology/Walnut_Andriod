@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/viewpager_lay2_l2">
+
+    <!--<HorizontalScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<view-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="100dp"-->
+            <!--class="im.dacer.androidcharts.LineView"-->
+            <!--android:id="@+id/line_view" />-->
+    <!--</HorizontalScrollView>-->
+
+    <maojian.android.walnut.ScrollviewCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/me_scrollView2" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/viewpager_lay2_l1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/today_verticallayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="0.0"
+                        android:id="@+id/today_textview"
+                        android:textSize="40dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Today"
+                        android:id="@+id/textView21"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="km"
+                    android:id="@+id/textView18"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/today_verticallayout" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/odometer_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/textView20"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="0.0"
+                        android:id="@+id/total_textview"
+                        android:textSize="40dp"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Odometer"
+                        android:id="@+id/textView22"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="km"
+                    android:id="@+id/textView20"
+                    android:layout_alignTop="@+id/textView18"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="35dp"
+                    android:layout_marginLeft="10dp" />
+
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@color/seperateColor"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"></LinearLayout>
+
+            <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/imageView16"-->
+                <!--android:background="@drawable/history_map"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_marginTop="10dp" />-->
+
+            <lecho.lib.hellocharts.view.LineChartView
+                android:id="@+id/chart"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp" />
+
+            <com.mapbox.mapboxsdk.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp" />
+            <!--mapbox:style_url="@string/style_mapbox_streets"-->
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/order_button"
+                android:id="@+id/order_button"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/discount_button"
+                android:id="@+id/discount_button"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp" />
+        </LinearLayout>
+    </maojian.android.walnut.ScrollviewCompat>
+
+</LinearLayout>

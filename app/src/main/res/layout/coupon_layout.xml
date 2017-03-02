@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/coupon1"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/coupon_card1"
+            android:id="@+id/coupon_card1"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="10-10-2017"
+            android:textColor="@color/whiteColor"
+            android:id="@+id/coupon_date1"
+            android:layout_gravity="bottom|left"
+            android:layout_marginLeft="17dp"
+            android:layout_marginBottom="30dp" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/device_bottom"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imagepicker_returnbutton"
+                android:background="@drawable/white_backc_icon"
+                android:layout_gravity="left|top"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imagepicker_nextbutton"
+                android:background="@drawable/image_picker_nexticon"
+                android:layout_gravity="right|top"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp" />
+        </RelativeLayout>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/contive"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#aaaaaa">
+
+            <maojian.android.walnut.ImagePicker.imageselector_view.ClipImageLayout
+                android:id="@+id/id_clipImageLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"></maojian.android.walnut.ImagePicker.imageselector_view.ClipImageLayout>
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <GridView
+        android:layout_width="wrap_content"
+        android:layout_height="262dp"
+        android:numColumns="4"
+        android:horizontalSpacing="2dip"
+        android:verticalSpacing="2dip"
+        android:id="@+id/imagepicker_gridView" />
+</LinearLayout>

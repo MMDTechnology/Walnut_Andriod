@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="facebook_app_id">437836289760648</string>
+    <string name="app_name">WALNUTT GO</string>
+    <string name="action_logout">Change Account</string>
+    <string name="action_about_app">关于与建议</string>
+    <string name="network_error">网络错误，请检查您的网络连接</string>
+    <string name="dialog_OK">Confirm</string>
+    <string name="dialog_Cancel">Cancel</string>
+    <string name="dialog_error_title">Error</string>
+    <string name="dialog_message_title">Tips</string>
+    <string name="dialog_message_success">Success</string>
+    <string name="dialog_text_wait">Please wait</string>
+
+    <string name="login_input_user_name">Email</string>
+    <string name="login_input_user_password">Password</string>
+    <string name="login_button_login">Log In</string>
+    <string name="login_button_register">SIGN UP</string>
+    <string name="login_button_forget_password">Forgot your password？</string>
+    <string name="error_login_error">Fail to log in</string>
+
+    <string name="forget_password_find_password_button">Send email</string>
+    <string name="forget_password_send_email">Success</string>
+    <string name="forget_password_email_error">邮件发送错误，请确认您的邮件地址</string>
+
+    <string name="register_input_user_password_again">Confirm password</string>
+    <string name="register_input_user_email">Email</string>
+    <string name="error_register_password_not_equals">两次输入密码不一致，请重新输入</string>
+    <string name="error_register_password_null">Password cannot be empty</string>
+    <string name="error_register_user_name_null">Username cannot be empty</string>
+    <string name="error_register_email_address_null">E-mail address cannot be empty </string>
+    <string name="error_register_user_name_repeat">用户名已被注册，请重新填写</string>
+    <string name="error_register_email_repeat">邮箱已被注册，请更换邮箱</string>
+
+    <string name="pull_to_refresh_tap_label">Refresh</string>
+    <string name="pull_to_refresh_pull_label">Pull to Refresh</string>
+    <string name="pull_to_refresh_release_label">Release</string>
+    <string name="pull_to_refresh_refreshing_label">Refreshing</string>
+
+    <string name="success_register_success">Success</string>
+
+    <string name="main_view_person_title">我的成就</string>
+    <string name="main_view_anytime_title">正在做</string>
+
+    <string name="action_logout_alert_message">确定更换账号么？之前保留的账号信息将被删除。</string>
+    <string name="action_about_app_text">关于作者:\n\thi，大家好，我是“孤独的猫咪神”。\n\t我的微博是:weibo.com/maomishen\n\t感谢您使用此APP。欢迎对本APP提出您宝贵的意见和建议。</string>
+    <string name="action_about_app_doing_list_title">我希望在“正在做”中，加入如下的事情:\n我要提意见:</string>
+    <string name="action_about_app_submit_doing">提交</string>
+    <string name="action_about_app_submit_doing_hint">输入意见或希望添加在“正在做”中的内容。</string>
+    <string name="action_about_app_submit_message_success">感谢您的提交。祝您生活愉快。</string>
+    <string name="action_about_app_submit_message_error">非常抱歉，提交出错。</string>
+
+    <string name="person_register_time">注册时间:{0}</string>
+    <string name="person_achievement_list_null">暂无成就</string>
+
+    <string name="doing_list_wait_loading">正在加载</string>
+    <string name="doing_list_error_loading">加载错误，请检查网络</string>
+
+    <string name="doing_detail_loading">努力查询中！</string>
+    <string name="doing_detail_same_time_title">与您同时在{0}的人有</string>
+    <string name="doing_detail_person">人</string>
+    <string name="doing_detail_get_achievement_title">本次获得的成就</string>
+    <string name="doing_detail_achievement_null">没有获得成就T.T</string>
+
+
+    <string name="ble_not_supported">BLE is not supported</string>
+    <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
+
+    <string name="unknown_device">Unknown device</string>
+    <string name="unknown_characteristic">Unknown characteristic</string>
+    <string name="unknown_service">Unknown service</string>
+
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/device_seekbarbackground">
+        <shape>
+            <solid android:color="@color/slidegray" />
+        </shape>
+    </item>
+    <item android:id="@+id/device_seekbarbackgroundon">
+        <clip>
+            <shape>
+                <solid android:color="@color/ggColor" />
+            </shape>
+        </clip>
+    </item>
+    <item android:id="@+id/device_seekbarbackgroundoff">
+        <clip>
+            <shape>
+                <solid android:color="@color/ggColor" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

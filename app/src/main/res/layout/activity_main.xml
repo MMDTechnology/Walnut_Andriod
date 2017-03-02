@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:id="@+id/id_content"
+    tools:context=".RegisterActivity" >
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/bottom_tabbar"></FrameLayout>
+
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"    android:orientation="horizontal"
+    android:layout_marginLeft="0dp"
+    android:id="@+id/bottom_tabbar"
+    android:gravity="bottom"
+    android:layout_alignParentBottom="true">
+
+    <RadioButton
+        android:id="@+id/bottom_tabbar_rb_0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/tabbarColor"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:textSize="6pt"
+        android:textColor="@color/color_radiobutton"
+        android:text="home"
+        android:drawableTop="@drawable/home_selector"
+        android:checked="false" />
+
+    <RadioButton
+        android:id="@+id/bottom_tabbar_rb_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/tabbarColor"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:textSize="6pt"
+        android:textColor="@color/color_radiobutton"
+        android:text="discover"
+        android:drawableTop="@drawable/discover_selector"
+        android:checked="false" />
+
+    <RadioButton
+        android:id="@+id/bottom_tabbar_rb_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/tabbarColor"
+        android:button="@android:color/transparent"
+        android:drawableTop="@drawable/device"
+        android:gravity="center"
+        android:textSize="6pt"
+        android:textColor="@color/color_radiobutton"
+        android:text="device" />
+
+    <RadioButton
+        android:id="@+id/bottom_tabbar_rb_3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/tabbarColor"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:textColor="@color/color_radiobutton"
+        android:textSize="6pt"
+        android:text="message"
+        android:drawableTop="@drawable/message_selector"/>
+    <RadioButton
+        android:id="@+id/bottom_tabbar_rb_4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/tabbarColor"
+        android:button="@android:color/transparent"
+        android:textColor="@color/color_radiobutton"
+        android:gravity="center"
+        android:textSize="6pt"
+        android:text="me"
+        android:drawableTop="@drawable/me_selector"/>
+</RadioGroup>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <color name="RemoteCircleProgress">#00EAAB</color>
+
+    <color name="HomeCountColor">#8A8A8A</color>
+    <color name="HomeCommentContent">#676767</color>
+
+    <color name="CommentUsername">#1C2227</color>
+    <color name="CommentContent">#9D9E9E</color>
+
+    <color name="seperateColor">#C9CACA</color>
+
+    <color name="BlueColor">#0099CC</color>
+    <color name="ggColor">#00EAAB</color>
+    <color name="devicegray">#727171</color>
+    <color name="slidegray">#D0D0D0</color>
+
+    <color name="hometop">#F7F7F7</color>
+    <color name="lightgray">#F2F2F2</color>>
+    <color name="whiteColor">#FFFFFF</color>
+    <color name="tabbarColor">#EEEEEE</color>
+    <color name="tabbarfont">#8C8C8C</color>
+    <color name="statuscolor">#008EFF</color>
+    <color name="tabbarfontselected">#3C4347</color>
+    <color name="tabbarselectedColor">#000000</color>
+    <color name="remindtext_color">#898989</color>
+    <color name="device_label">#030303</color>
+    <color name="device_bottom">#33393D</color>
+
+    <color name="red_color">#FE2851</color>
+
+</resources>

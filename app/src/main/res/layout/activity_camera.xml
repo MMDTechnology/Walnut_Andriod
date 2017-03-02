@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+    <FrameLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        >
+
+
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/camera_shading"
+        android:id="@+id/camera_shading" />
+
+    <ImageButton
+        android:id="@+id/button_capture"
+        android:background="@drawable/camera_shutter"
+        android:text="Capture"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="14dp" />
+
+    <maojian.android.walnut.RoundProgressBar
+        android:id="@+id/loading_process_dialog_progressBar"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_alignLeft="@+id/roundProgressBar1"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="14dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/camera_switchcamera_button"
+        android:background="@drawable/camera_switchcamera"
+        android:layout_gravity="left|bottom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="15dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/camera_flash_button"
+        android:background="@drawable/camera_flash"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="20dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/camera_return_button"
+        android:background="@drawable/camera_return"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/camera_library_button"
+        android:background="@drawable/camera_library"
+        android:layout_gravity="right|top"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/camera_switchorientation"
+        android:background="@drawable/camera_switchorientation"
+        android:layout_gravity="center" />
+
+</FrameLayout>

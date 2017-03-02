@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:padding="20.0dip" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sensorcheck_label"
+            android:id="@+id/imageView9" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sensor_deck"
+                android:id="@+id/imageView10"
+                android:layout_gravity="center" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sensor_deck1"
+                android:id="@+id/sensor_deck1"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginTop="12dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sensor_deck2"
+                android:id="@+id/sensor_deck2"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginBottom="37dp"
+                android:layout_marginRight="5dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sensor_deck3"
+                android:background="@drawable/sensor_deck5"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="37dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sensor_deck4"
+                android:background="@drawable/sensor_deck3"
+                android:layout_gravity="right|bottom"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="32dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sensor_deck4"
+                android:id="@+id/sensor_deck5"
+                android:layout_gravity="left|bottom"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="32dp" />
+
+        </FrameLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sensor_contactbutton"
+            android:background="@drawable/device_selfchecking_contact"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp" />
+
+    </LinearLayout>
+
+</FrameLayout>

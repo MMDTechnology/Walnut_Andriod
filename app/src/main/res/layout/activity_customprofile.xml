@@ -1,0 +1,171 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/whiteColor"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <FrameLayout
+            android:orientation="horizontal"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="30dp" >
+
+            <Button
+                android:textSize="12sp"
+                android:layout_width="95dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                android:text="Follow"
+                android:textStyle="bold"
+                android:background="@drawable/edit_profile_background"
+                android:id="@+id/custom_followbutton"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center"
+                android:gravity="center" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp" >
+
+                <TextView
+                    android:id="@+id/custom_fansbutton"
+                    android:text="Fans"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/custom_fanslabel"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_alignParentBottom="true"
+                    android:paddingBottom="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp" >
+
+                <TextView
+                    android:id="@+id/custom_followingbutton"
+                    android:text="Following"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/custom_followinglabel"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_alignParentBottom="true"
+                    android:paddingBottom="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top" >
+
+            <TextView
+                android:id="@+id/custom_username"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginTop="10dp" />
+
+            <ImageView
+                android:id="@+id/custom_profileimage"
+                android:layout_marginTop="18dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/profile_bio_info"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="10dp" />
+
+        <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:id="@+id/custom_backButton"
+            android:background="@drawable/back_icon"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="left|top" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" >
+
+        <TextView
+            android:id="@+id/mark_tab_custom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="MARKS"
+            android:textColor="#000000"
+            android:textSize="23dp" />
+
+        <TextView
+            android:id="@+id/post_tab_custom"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="POSTS"
+            android:textColor="#000000"
+            android:textSize="23dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/viewpager_cursor_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="matrix"
+        android:background="@drawable/post_cursor" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/custom_viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
+</LinearLayout>

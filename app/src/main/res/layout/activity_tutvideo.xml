@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/tut_videoview"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:background="@drawable/tut_startbutton"
+            android:id="@+id/startButton"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skip"
+            android:background="@drawable/tut_skipbutton"
+            android:id="@+id/skipButton"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Replay"
+            android:background="@drawable/tut_replaybutton"
+            android:id="@+id/replayButton"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginRight="5dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Train"
+            android:background="@drawable/tut_trainbutton"
+            android:id="@+id/trainButton"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:background="@drawable/tut_continuebutton0"
+            android:id="@+id/continueButton"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
+
+</FrameLayout>
