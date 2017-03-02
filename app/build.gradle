@@ -14,9 +14,18 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 android {
+    signingConfigs {
+        config {
+            keyAlias 'walnut'
+            keyPassword 'android'
+            storeFile file('keystore/walnut.jks')
+            storePassword 'android'
+        }
+    }
+
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
-
+    aaptOptions.useNewCruncher = false
     defaultConfig {
         applicationId "maojian.android.walnut"
         minSdkVersion 22
@@ -24,18 +33,22 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            signingConfig signingConfigs.config
+        }
     }
 }
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.facebook.android:facebook-android-sdk:4.7.0'
@@ -43,7 +56,7 @@ dependencies {
         transitive = true
     }
     compile files('libs/universal-image-loader-1.9.5.jar')
-//    compile('com.twitter.sdk.android:twitter:2.0.0@aar') {
-//        transitive = true;
-//    }
+    //    compile('com.twitter.sdk.android:twitter:2.0.0@aar') {
+    //        transitive = true;
+    //    }
 }
