@@ -27,11 +27,12 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.CircleBitmapDisplayer;
 
 import maojian.android.walnut.ImagePicker.ProfilePickerActivity;
+import maojian.android.walnut.me.ChangePasswordActivity;
 
 /**
  * Created by jie on 2016/8/1.
  */
-public class EditprofileActivity extends FragmentActivity {
+public class EditprofileActivity extends AnyTimeActivity {
 
     private ImageView avatar;
     DisplayImageOptions avatarstyle;
@@ -42,16 +43,16 @@ public class EditprofileActivity extends FragmentActivity {
     private EditText usergender;
     private EditText userskatename;
     private EditText userbio;
-    private EditText userwebsite;
+//    private EditText userwebsite;
 
     private TextView editprofile_button;
 
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_editprofile);
 
-        avatarstyle= new DisplayImageOptions.Builder()
+        avatarstyle = new DisplayImageOptions.Builder()
                 .showImageOnLoading(R.drawable.ic_stub)
                 .showImageForEmptyUri(R.drawable.ic_empty)
                 .showImageOnFail(R.drawable.ic_error)
@@ -61,24 +62,23 @@ public class EditprofileActivity extends FragmentActivity {
                 .displayer(new CircleBitmapDisplayer(Color.WHITE, 1))
                 .build();
 
-        final View epview=getWindow().getDecorView();
+        final View epview = getWindow().getDecorView();
         epview.setOnTouchListener(new View.OnTouchListener() {
-                 public boolean onTouch(View v, MotionEvent event) {
-                         // TODO Auto-generated method stub
-                     epview.setFocusable(true);
-                     epview.setFocusableInTouchMode(true);
-                     epview.requestFocus();
-                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                     imm.hideSoftInputFromWindow(username.getWindowToken(), 0);
-                     return false;
-                 }
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                epview.setFocusable(true);
+                epview.setFocusableInTouchMode(true);
+                epview.requestFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(username.getWindowToken(), 0);
+                return false;
+            }
         });
 
-        ImageButton backButton = (ImageButton) findViewById(R.id.epbackButton);
-        avatar=(ImageView)findViewById(R.id.imageView2);
-        username=(EditText) findViewById(R.id.epusername) ;
-        useremail=(EditText) findViewById(R.id.epmail);
-        epsave=(Button)findViewById(R.id.epsave) ;
+        avatar = (ImageView) findViewById(R.id.imageView2);
+        username = (EditText) findViewById(R.id.epusername);
+        useremail = (EditText) findViewById(R.id.epmail);
+        epsave = (Button) findViewById(R.id.epsave);
         getdata();
         epsave.setOnClickListener(
                 new View.OnClickListener() {
@@ -90,10 +90,10 @@ public class EditprofileActivity extends FragmentActivity {
                         todo.put("username", username.getText().toString());
                         todo.put("email", useremail.getText().toString());
 
-                        todo.put("gender",usergender.getText().toString());
-                        todo.put("bio",userbio.getText().toString());
-                        todo.put("skatebotName",userskatename.getText().toString());
-                        todo.put("personalwebsite", userwebsite.getText().toString());
+                        todo.put("gender", usergender.getText().toString());
+                        todo.put("bio", userbio.getText().toString());
+                        todo.put("skatebotName", userskatename.getText().toString());
+//                        todo.put("personalwebsite", userwebsite.getText().toString());
 
                         // 保存到云端
                         todo.saveInBackground(
@@ -113,13 +113,13 @@ public class EditprofileActivity extends FragmentActivity {
                     }
                 }
         );
-        backButton.setOnClickListener(
+        findViewById(R.id.epbackButton).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                       EditprofileActivity.this.finish();
+                        EditprofileActivity.this.finish();
                     }
                 }
         );
@@ -155,17 +155,18 @@ public class EditprofileActivity extends FragmentActivity {
         usergender = (EditText) findViewById(R.id.epusergender);
         userskatename = (EditText) findViewById(R.id.epskatebotname);
         userbio = (EditText) findViewById(R.id.epuserbio);
-        userwebsite = (EditText) findViewById(R.id.epwebsite);
+//        userwebsite = (EditText) findViewById(R.id.epwebsite);
 
-        ImageButton report_button = (ImageButton) findViewById(R.id.report_button);
-
-        report_button.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.report_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditprofileActivity.this, FeedbackActivity.class);
                 startActivity(intent);
             }
         });
+        findViewById(R.id.changepassword).setOnClickListener(this);
+        findViewById(R.id.pushsetting).setOnClickListener(this);
+        findViewById(R.id.savephoto).setOnClickListener(this);
 
     }
 
@@ -178,19 +179,37 @@ public class EditprofileActivity extends FragmentActivity {
 
     }
 
-    public void getdata(){
+    @Override
+    public void onClickEvent(View v) {
+        switch (v.getId()) {
+            case R.id.changepassword:
+                startActivity(new Intent(EditprofileActivity.this, ChangePasswordActivity.class));
+                break;
+            case R.id.pushsetting:
+
+                v.setSelected(!v.isSelected());
+                break;
+            case R.id.savephoto:
+                v.setSelected(!v.isSelected());
+                break;
+        }
+
+    }
+
+    public void getdata() {
         AVQuery<AVObject> avQuery = new AVQuery<>("_User");
         avQuery.getInBackground((String) AVUser.getCurrentUser().getObjectId(), new GetCallback<AVObject>() {
             @Override
             public void done(AVObject avObject, AVException e) {
-                ImageLoader.getInstance().displayImage(avObject.getAVFile("profileImage").getUrl(),avatar,avatarstyle);
+                if (avObject == null) return;
+                ImageLoader.getInstance().displayImage(avObject.getAVFile("profileImage").getUrl(), avatar, avatarstyle);
                 username.setText(avObject.getString("username"));
                 useremail.setText(avObject.getString("email"));
 
                 usergender.setText(avObject.getString("gender"));
                 userbio.setText(avObject.getString("bio"));
                 userskatename.setText(avObject.getString("skatebotName"));
-                userwebsite.setText(avObject.getString("personalwebsite"));
+//                userwebsite.setText(avObject.getString("personalwebsite"));
             }
         });
     }

@@ -57,7 +57,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by android on 3/8/16.
+ * Created by WalnutTech_Developer01 on 3/8/16.
  */
 public class DeviceActivity extends Activity {
 
@@ -80,6 +80,10 @@ public class DeviceActivity extends Activity {
     ImageView start_mode_button;
 
     private Boolean lockmode;
+
+    private boolean lock_signal = false;
+
+    private byte[] passwordArray;
 
     private int startmode;// true: stand to go    false: slide to go
 
@@ -108,6 +112,10 @@ public class DeviceActivity extends Activity {
     private int testdata2;
 
     private boolean pause_connect;
+
+    private  AlertDialog selfcheck_dialog;
+
+    private int sensorValue0,sensorValue1,sensorValue2,sensorValue3,sensorValue4;
 
 
     // Bluetooth Setting
@@ -246,7 +254,7 @@ public class DeviceActivity extends Activity {
                     @Override
                     public void onClick(View view) {
 
-                        Log.e("strange","setdisConnected_Layout>>>>");
+                        Log.e("strange", "setdisConnected_Layout>>>>");
 
 
                         if (!mConnected) {
@@ -279,7 +287,7 @@ public class DeviceActivity extends Activity {
                                     (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
                             mBluetoothAdapter = bluetoothManager.getAdapter();
 
-                            Log.e("strange","setdisConnected_Layou.....   "+bluetoothManager);
+                            Log.e("strange", "setdisConnected_Layou.....   " + bluetoothManager);
 
                             // Checks if Bluetooth is supported on the device.
                             if (mBluetoothAdapter == null) {
@@ -334,6 +342,7 @@ public class DeviceActivity extends Activity {
                     @Override
                     public void onClick(View v) {
 
+                        lock_signal = false;
                         if(startmode == 1){
                             start_mode_button.setBackground(getResources().getDrawable(R.drawable.device_slidemode));
                             startmode = 2;
@@ -362,6 +371,12 @@ public class DeviceActivity extends Activity {
 
                         if(mConnected) {
 
+                            if(AVUser.getCurrentUser()!=null) {
+                                lock_signal = true;
+                                Log.e("password setup","lock signal true");
+                            }
+
+                            // 收到返回值改变状态更好
                             if (lockmode) {
 
                                 lockstatus.setBackground(getResources().getDrawable(R.drawable.unlockstatus));
@@ -403,6 +418,23 @@ public class DeviceActivity extends Activity {
                 }
         );
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(DeviceActivity.this);
+//                        LayoutInflater inflater = getLayoutInflater();
+        LayoutInflater inflater = getLayoutInflater();
+
+        dialog_view_selfcheck = inflater.inflate(R.layout.dialog_sensorchecking, null);
+
+        builder.setView(dialog_view_selfcheck);
+        selfcheck_dialog = builder.create();
+
+        sensor_deck1 = (ImageView) dialog_view_selfcheck.findViewById(R.id.sensor_deck1);
+        sensor_deck2 = (ImageView) dialog_view_selfcheck.findViewById(R.id.sensor_deck2);
+        sensor_deck3 = (ImageView) dialog_view_selfcheck.findViewById(R.id.sensor_deck3);
+        sensor_deck4 = (ImageView) dialog_view_selfcheck.findViewById(R.id.sensor_deck4);
+        sensor_deck5 = (ImageView) dialog_view_selfcheck.findViewById(R.id.sensor_deck5);
+
+        //sensor_deck1.setImageDrawable(getResources().getDrawable(R.drawable.sensor_deck1_s));
+
 
         device_product.setOnClickListener(
                 new View.OnClickListener() {
@@ -410,15 +442,21 @@ public class DeviceActivity extends Activity {
                     public void onClick(View view) {
 
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(DeviceActivity.this);
-//                        LayoutInflater inflater = getLayoutInflater();
-                        LayoutInflater inflater = getLayoutInflater();
+//                        AlertDialog.Builder builder = new AlertDialog.Builder(DeviceActivity.this);
+////                        LayoutInflater inflater = getLayoutInflater();
+////                        LayoutInflater inflater = getLayoutInflater();
+////
+////                        dialog_view_selfcheck = inflater.inflate(R.layout.dialog_sensorchecking, null);
+////
+////                        builder.setView(dialog_view_selfcheck);
+//
+//                        selfcheck_dialog = builder.create();
 
-                        dialog_view_selfcheck = inflater.inflate(R.layout.dialog_sensorchecking, null);
-
-                        builder.setView(dialog_view_selfcheck);
-
-                        AlertDialog dialog = builder.create();
+                        sensor_deck1.setBackground(getResources().getDrawable(R.drawable.sensor_deck1));
+                        sensor_deck2.setBackground(getResources().getDrawable(R.drawable.sensor_deck5));
+                        sensor_deck3.setBackground(getResources().getDrawable(R.drawable.sensor_deck2));
+                        sensor_deck4.setBackground(getResources().getDrawable(R.drawable.sensor_deck4));
+                        sensor_deck5.setBackground(getResources().getDrawable(R.drawable.sensor_deck3));
 
 
 //                        dialog_view_selfcheck = inflater.inflate(R.layout.dialog_selfchecking, null);
@@ -436,14 +474,10 @@ public class DeviceActivity extends Activity {
                         if(mConnected) {
 
                             if (!lockmode) {
-                                dialog.show();
+                                selfcheck_dialog.show();
 
                             // Sensor_checking
-                            sensor_deck1 = (ImageView) dialog_view_selfcheck.findViewById(R.id.sensor_deck1);
-                            sensor_deck2 = (ImageView) dialog_view_selfcheck.findViewById(R.id.sensor_deck2);
-                            sensor_deck3 = (ImageView) dialog_view_selfcheck.findViewById(R.id.sensor_deck3);
-                            sensor_deck4 = (ImageView) dialog_view_selfcheck.findViewById(R.id.sensor_deck4);
-                            sensor_deck5 = (ImageView) dialog_view_selfcheck.findViewById(R.id.sensor_deck5);
+
 
                             // sensor_value & 1  sensor_deck1.setBackground(getResources().getDrawable(R.drawable.sensor_deck1_s));
 
@@ -531,6 +565,7 @@ public class DeviceActivity extends Activity {
                         sportText.setTypeface(face);
                         proText.setTypeface(face);
 
+                        lock_signal = false;
 
                         if (progress >= 0 && progress < 33) {
 
@@ -637,7 +672,15 @@ public class DeviceActivity extends Activity {
         device_remind = (TextView) findViewById(R.id.device_remind);
         device_remind.setFocusable(true);
 
-        Log.e("strange", "setdis");
+
+
+//        Log.e("password setup", "current user: "+AVUser.getCurrentUser().getObjectId());
+//
+//        hexStringToPassword(AVUser.getCurrentUser().getObjectId());
+
+
+
+
 
         setdisConnected_Layout();
 
@@ -652,6 +695,7 @@ public class DeviceActivity extends Activity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        lock_signal = false;
                         speedMode.setProgress(10);
 
                         beginnerText.setTextSize(15);
@@ -671,6 +715,7 @@ public class DeviceActivity extends Activity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        lock_signal = false;
                         speedMode.setProgress(50);
 
                         beginnerText.setTextSize(10);
@@ -689,6 +734,7 @@ public class DeviceActivity extends Activity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        lock_signal = false;
                         speedMode.setProgress(90);
 
                         beginnerText.setTextSize(10);
@@ -1282,6 +1328,9 @@ public class DeviceActivity extends Activity {
             }
             else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
                 displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+
+                short strength = intent.getExtras().getShort(
+                        BluetoothDevice.EXTRA_RSSI);
             }
         }
     };
@@ -1456,6 +1505,25 @@ public class DeviceActivity extends Activity {
 
             byte sendBytes[] = {0x12,0x55,1,1,0,0,0,0,0,0,0,0};
 
+
+            if(selfcheck_dialog.isShowing()){
+
+                sendBytes[0] = 0x13;
+                sendBytes[1] = 0x04;
+                sendBytes[2] = 0;
+                sendBytes[3] = 0;
+
+            }
+            else{
+
+                sendBytes[0] = 0x12;
+                sendBytes[1] = 0x55;
+
+                sendBytes[2] = (byte) startmode;
+                sendBytes[3] = (byte) current_mode;
+
+            }
+
             Log.e("what data111"," device "+real_data.substring(15, 17));
 
             //Log.e("what data", ""+real_data);
@@ -1542,11 +1610,11 @@ public class DeviceActivity extends Activity {
                     }
                 }
 
-                sendBytes[0] = 0x12;
-                sendBytes[1] = 0x55;
-
-                sendBytes[2] = (byte) startmode;
-                sendBytes[3] = (byte) current_mode;
+//                sendBytes[0] = 0x12;
+//                sendBytes[1] = 0x55;
+//
+//                sendBytes[2] = (byte) startmode;
+//                sendBytes[3] = (byte) current_mode;
 
                 Log.e("what data111"," tutvideo111 "+sendBytes[3]+"  "+sendBytes[2]);
                 //sendBytes[8] = (byte) trainmode;
@@ -1559,12 +1627,39 @@ public class DeviceActivity extends Activity {
 
 //                sensor_value
 
+                if(lock_signal) {
 
-                if(lockmode)
-                    sendBytes[4] = 1;
-                else
-                    sendBytes[4] = 0;
-                //byte array[] = {0,03,0,0,0};
+                    if (lockmode){
+
+                        sendBytes[0] = 0x11;
+                        sendBytes[1] = 0x02;
+
+                        Log.e("password setup", "current user: "+AVUser.getCurrentUser().getObjectId());
+                        hexStringToPassword(AVUser.getCurrentUser().getObjectId());
+
+                        for(int i=2;i<12;i++){
+
+                            sendBytes[i] = passwordArray[i-2];
+
+                        }
+
+                    }
+                    else{
+                        sendBytes[0] = 0x11;
+                        sendBytes[1] = 0x03;
+
+                        Log.e("password setup", "current user: "+AVUser.getCurrentUser().getObjectId());
+                        hexStringToPassword(AVUser.getCurrentUser().getObjectId());
+
+                        for(int i=2;i<12;i++){
+
+                            sendBytes[i] = passwordArray[i-2];
+
+                        }
+
+                    }
+                    //byte array[] = {0,03,0,0,0};
+                }
 
                 // lockmode; startmode
 
@@ -1601,6 +1696,19 @@ public class DeviceActivity extends Activity {
         return b;
     }
 
+    public void hexStringToPassword(String hex) {
+
+
+        int len = 10;
+        passwordArray = new byte[len];
+        char[] achar = hex.toCharArray();
+        for (int i = 0; i < len; i++) {
+            int pos = i * 2;
+            passwordArray[i] = (byte) (toByte(achar[pos]) << 4 | toByte(achar[pos + 1]));
+            Log.e("password setup", "result: "+passwordArray[i]);
+        }
+    }
+
     public void hexStringToByte(String hex) {
         int len = (hex.length() / 3);
         byte[] result = new byte[len];
@@ -1611,7 +1719,63 @@ public class DeviceActivity extends Activity {
             //Log.e("byte debyg","  "+result[i]);
         }
 
-        //Log.e("byte debyg","  "+len);
+
+
+        if(result[0]==0x23){
+            sensorValue0 = result[2];
+            sensorValue1 = result[3];
+            sensorValue2 = result[4];
+            sensorValue3 = result[5];
+            sensorValue4 = result[6];
+        }
+        else {
+
+            sensorValue0 = 49;
+            sensorValue1 = 49;
+            sensorValue2 = 49;
+            sensorValue3 = 49;
+            sensorValue4 = 49;
+        }
+
+        Log.e("spectra_test",+result[0]+"  "+result[1]+"  "+result[2]+"  "+result[3]+"  "+result[4]+"  "+result[5]+"  "+result[6]+"  "
+                +result[7]+"  "+result[8]);
+
+        if(sensorValue0>100){
+            Log.e("spectra_test","sensor1 change");
+            sensor_deck1.setBackground(getResources().getDrawable(R.drawable.sensor_deck1_s));
+        }
+        else {
+            //sensor_deck1.setBackground(getResources().getDrawable(R.drawable.sensor_deck1));
+        }
+
+        if(sensorValue1>100){
+            sensor_deck2.setBackground(getResources().getDrawable(R.drawable.sensor_deck5_s));
+        }
+        else {
+            //sensor_deck2.setBackground(getResources().getDrawable(R.drawable.sensor_deck2));
+        }
+
+        if(sensorValue2>100){
+            sensor_deck3.setBackground(getResources().getDrawable(R.drawable.sensor_deck2_s));
+        }
+        else {
+            //sensor_deck3.setBackground(getResources().getDrawable(R.drawable.sensor_deck3));
+        }
+
+        if(sensorValue3>100){
+            sensor_deck4.setBackground(getResources().getDrawable(R.drawable.sensor_deck4_s));
+        }
+        else {
+            //sensor_deck4.setBackground(getResources().getDrawable(R.drawable.sensor_deck4));
+        }
+
+
+        if(sensorValue4>100){
+            sensor_deck5.setBackground(getResources().getDrawable(R.drawable.sensor_deck3_s));
+        }
+        else {
+            //sensor_deck5.setBackground(getResources().getDrawable(R.drawable.sensor_deck5));
+        }
 
         batteryremain = result[5];
 
@@ -1624,6 +1788,22 @@ public class DeviceActivity extends Activity {
         testdata2 = result[6];
 
         record_array.add(+testdata1+"||"+testdata2);
+
+        if(result[0]==0x21){
+
+            lock_signal = false;
+            Log.e("password setup","lock signal false");
+
+            if(result[2]==0x01){
+                Log.e("password setup","lock/unlock true");
+
+            }
+            else {
+                Log.e("password setup","lock/unlock false");
+
+            }
+
+        }
 
         //odometer_range = 100;
 
@@ -1711,7 +1891,7 @@ public class DeviceActivity extends Activity {
                             // Loops through available Characteristics.
                             for (BluetoothGattCharacteristic gattCharacteristic : gattCharacteristics) {
                                 //Log.e("Device debug", " " + gattCharacteristic.getUuid());
-                                if (gattCharacteristic.getUuid().toString().equals("0000ffe1-0000-1000-8000-00805f9b34fb")) {
+                                if (gattCharacteristic.getUuid().toString().equals("0000ffe9-0000-1000-8000-00805f9b34fb")) {
                                     Log.e("???Device done", " " + gattCharacteristic.getUuid().toString());
                                     speedmodeChara = gattCharacteristic;
                                 }

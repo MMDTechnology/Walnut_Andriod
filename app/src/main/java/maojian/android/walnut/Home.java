@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -49,6 +50,7 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
+import maojian.android.walnut.utils.DateUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -127,7 +129,7 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
         homeview_camerabutton = (ImageButton) view.findViewById(R.id.mainview_camerabutton);
 
 
-        Log.e("a123","  "+homeview_camerabutton);
+        Log.e("a123", "  " + homeview_camerabutton);
 
         homeview_camerabutton.setOnClickListener(
                 new View.OnClickListener() {
@@ -153,10 +155,11 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
         );
 
 
-
         //lv.setAdapter(new ArrayAdapter<String>(getActivity(),
         //        android.R.layout.simple_expandable_list_item_1, strs));
         //new MyThread().start();
+
+
         return view;
 
     }
@@ -164,7 +167,6 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
 
 
 //        ImageButton homeview_camerabutton = (ImageButton) getActivity().findViewById(R.id.mainview_camerabutton);
@@ -192,6 +194,11 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
 
         Log.e("abc", "home resume");
 
+        VideoView  videoView = (VideoView) view.findViewById(R.id.videoView);
+        Uri uri = Uri.parse("https://s3.amazonaws.com/avos-cloud-tj3tbek3kfqb/K3XTTmPwLABNaMc474hRDdB.mov");
+        //holder.videoView.setMediaController(new MediaController(getActivity()));
+        videoView.setVideoURI(uri);
+        videoView.start();
     }
 
     @Override
@@ -201,12 +208,12 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
         followquery.whereEqualTo("type", "follow");
         followquery.whereEqualTo("fromUser", AVUser.getCurrentUser());
 
-        AVQuery<AVObject>photosFromFollowedUsersQuery = new AVQuery<>("Photo");
+        AVQuery<AVObject> photosFromFollowedUsersQuery = new AVQuery<>("Photo");
         photosFromFollowedUsersQuery.whereMatchesKeyInQuery("user", "toUser", followquery);
         photosFromFollowedUsersQuery.whereExists("image");
         photosFromFollowedUsersQuery.include("createdAt");
 
-        AVQuery<AVObject>photosFromCurrentUserQuery = new AVQuery<>("Photo");
+        AVQuery<AVObject> photosFromCurrentUserQuery = new AVQuery<>("Photo");
         photosFromCurrentUserQuery.whereEqualTo("user", AVUser.getCurrentUser());
         photosFromCurrentUserQuery.whereExists("image");
         photosFromCurrentUserQuery.include("createdAt");
@@ -275,11 +282,10 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
         });
 
 
-
     }
 
     //
-    private class ImageAdapter extends BaseAdapter  {
+    private class ImageAdapter extends BaseAdapter {
 
         private LayoutInflater inflater;
         private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
@@ -343,7 +349,7 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
                 view = inflater.inflate(R.layout.vlist, parent, false);
                 holder = new ViewHolder();
                 holder.text = (TextView) view.findViewById(R.id.userName);
-                Typeface face = Typeface.createFromAsset (getActivity().getAssets() , "fonts/Brown-Regular.otf" );
+                Typeface face = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Brown-Regular.otf");
                 holder.text.setTypeface(face);
 
                 holder.image = (ImageView) view.findViewById(R.id.Post);
@@ -353,7 +359,7 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
                 int width1 = wm1.getDefaultDisplay().getWidth();
                 int height1 = wm1.getDefaultDisplay().getHeight();
 
-                para.height = width1/16*10;
+                para.height = width1 / 16 * 10;
                 para.width = width1;
 
                 holder.image.setLayoutParams(para);
@@ -368,20 +374,20 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
 
 
                 holder.timelabel = (TextView) view.findViewById(R.id.timelabel);
-                Typeface face3 = Typeface.createFromAsset (getActivity().getAssets() , "fonts/Brown-Light.otf" );
-                holder.timelabel.setTypeface (face3);
+                Typeface face3 = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Brown-Light.otf");
+                holder.timelabel.setTypeface(face3);
                 holder.commentcontent = (TextView) view.findViewById(R.id.main_commentcontent);
-                Typeface face4 = Typeface.createFromAsset (getActivity().getAssets() , "fonts/Brown-Regular.otf" );
+                Typeface face4 = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Brown-Regular.otf");
 
-                holder.commentcount.setTypeface (face4);
-                holder.likecount.setTypeface (face4);
+                holder.commentcount.setTypeface(face4);
+                holder.likecount.setTypeface(face4);
                 holder.commentcontent.setTypeface(face4);
 
                 holder.likebutton = (ImageButton) view.findViewById(R.id.mainlikebutton);
                 holder.commentbutton = (ImageButton) view.findViewById(R.id.maincommentbutton);
                 holder.islike = false;
 
-                holder.videoView  = (VideoView) view.findViewById(R.id.videoView);
+                holder.videoView = (VideoView) view.findViewById(R.id.videoView);
                 holder.video_playbutton = (ImageButton) view.findViewById(R.id.video_playbutton);
 
                 ViewGroup.LayoutParams para_video;
@@ -390,14 +396,12 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
                 int width2 = wm2.getDefaultDisplay().getWidth();
                 int height2 = wm2.getDefaultDisplay().getHeight();
 
-                para_video.height = width2/16*10;
+                para_video.height = width2 / 16 * 10;
                 para_video.width = width2;
 
                 holder.videoView.setLayoutParams(para_video);
 
                 holder.player = new MediaPlayer();
-
-
 
 
                 view.setTag(holder);
@@ -425,7 +429,7 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
                         holder.commentcontent.setText(postobjectArray.get(position).get("comment").toString());
                     }
 
-                } else{
+                } else {
                     Log.e("abc", "commentcontent gone " + position);
                     holder.commentcontent.setVisibility(View.GONE);
                     //holder.commentcontent.setText(postobjectArray.get(position).get("comment").toString());
@@ -435,17 +439,18 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
                 holder.image.setVisibility(View.VISIBLE);
                 holder.video_playbutton.setVisibility(View.INVISIBLE);
 
-                if(postobjectArray.get(position).get("isVideo")==true){
+                if (postobjectArray.get(position).get("isVideo") != null) {
 
                     //holder.videoView.setVisibility(View.VISIBLE);
                     //holder.image.setVisibility(View.INVISIBLE);
                     holder.video_playbutton.setVisibility(View.VISIBLE);
 
                     AVFile postVideo = postobjectArray.get(position).getAVFile("video");
-                    Uri uri = Uri.parse(postVideo.getUrl());
-                    //holder.videoView.setMediaController(new MediaController(getActivity()));
-                    holder.videoView.setVideoURI(uri);
-
+                    if (postVideo != null && !TextUtils.isEmpty(postVideo.getUrl())) {
+                        Uri uri = Uri.parse(postVideo.getUrl());
+                        //holder.videoView.setMediaController(new MediaController(getActivity()));
+                        holder.videoView.setVideoURI(uri);
+                    }
 //                    holder.videoView.start();  // Video playing logic
 //                    holder.video_playbutton.setVisibility(View.VISIBLE);
 
@@ -456,7 +461,7 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
                     int width = wm.getDefaultDisplay().getWidth();
                     //int height = wm.getDefaultDisplay().getHeight();
 
-                    Log.e("video debug"," "+width);
+                    Log.e("video debug", " " + width);
 
                     //holder.videoView.getHolder().setFixedSize(2160,2160/16*9);
 
@@ -491,22 +496,21 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
                     //holder.videoView.requestFocus();
 
 
-
                     //holder.videoView
 
                 }
 
 
-               final AVUser x = (AVUser) postobjectArray.get(position).get("user");
+                final AVUser x = (AVUser) postobjectArray.get(position).get("user");
 
                 holder.profile.setOnClickListener(
                         new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
 
-                                Log.e("abc","discover: "+position);
+                                Log.e("abc", "discover: " + position);
 
-                                if(!(x.getUsername().toString().equals(AVUser.getCurrentUser().getUsername().toString()))) {
+                                if (!(x.getUsername().toString().equals(AVUser.getCurrentUser().getUsername().toString()))) {
 
                                     Intent intent = new Intent(getActivity(), customProfileActivity.class);
                                     //intent.addFlags(Intent.FLAG_ACTIVITY__TO_FRONT);
@@ -526,25 +530,27 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
 
                 Date curDate = new Date(System.currentTimeMillis());
 
-                long difference = postobjectArray.get(position).getCreatedAt().getTime() - curDate.getTime();
-                Log.v("Time difference:", String.valueOf(difference));
+//                long difference = postobjectArray.get(position).getCreatedAt().getTime() - curDate.getTime();
+//                Log.v("Time difference:", String.valueOf(difference));
+//
+//                String timediff = "today";
+//
+//                if ((-difference) < 60 * 1000) {
+//                    timediff = (-difference / 1000) + " Seconds ago";
+//                    Log.e("abc", "timedebug " + timediff + "  " + difference);
+//                } else if ((-difference) < 60 * 60 * 1000) {
+//                    timediff = (-difference / 1000 / 60) + " Minutes ago";
+//
+//                } else if ((-difference) < 60 * 60 * 24 * 1000) {
+//                    timediff = (-difference / 1000 / 60 / 60) + " Hours ago";
+//                } else {
+//                    //Log.e("timedebugging","??? "+(int)(-difference/1000/60/60/24)+"difff "+difference);
+//                    timediff = (-difference / 1000 / 60 / 60 / 24) + " Days ago";
+//                }
+//
+//                holder.timelabel.setText(timediff);
 
-                String timediff = "today";
-
-                if ((-difference) < 60 * 1000) {
-                    timediff = (-difference / 1000) + " Seconds ago";
-                    Log.e("abc", "timedebug " + timediff + "  " + difference);
-                } else if ((-difference) < 60 * 60 * 1000) {
-                    timediff = (-difference / 1000 / 60) + " Minutes ago";
-
-                } else if ((-difference) < 60 * 60 * 24 * 1000) {
-                    timediff = (-difference / 1000 / 60 / 60) + " Hours ago";
-                } else {
-                    //Log.e("timedebugging","??? "+(int)(-difference/1000/60/60/24)+"difff "+difference);
-                    timediff = (-difference / 1000 / 60 / 60 / 24) + " Days ago";
-                }
-
-                holder.timelabel.setText(timediff);
+                holder.timelabel.setText(DateUtils.dateProcess1(postobjectArray.get(position).getCreatedAt().getTime()));
 
                 holder.commentcount.setText(commentcountArray[position].toString());
                 holder.likecount.setText(likecountArray[position].toString());
@@ -593,10 +599,10 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
                                         AVQuery pushQuery = AVInstallation.getQuery();
                                         pushQuery.whereEqualTo("owner", (AVUser) postobjectArray.get(position).get("user"));
 
-                                        AVPush.sendMessageInBackground(AVUser.getCurrentUser().getUsername()+" liked your post", pushQuery, new SendCallback() {
+                                        AVPush.sendMessageInBackground(AVUser.getCurrentUser().getUsername() + " liked your post", pushQuery, new SendCallback() {
                                             @Override
                                             public void done(AVException e) {
-                                                Log.e("abc","like push done");
+                                                Log.e("abc", "like push done");
                                             }
                                         });
 
@@ -806,20 +812,18 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
 //}}
 
 
-
-
     public void getWallImages() {
 
         AVQuery<AVObject> followquery = new AVQuery<>("Activity");
         followquery.whereEqualTo("type", "follow");
         followquery.whereEqualTo("fromUser", AVUser.getCurrentUser());
 
-        AVQuery<AVObject>photosFromFollowedUsersQuery = new AVQuery<>("Photo");
+        AVQuery<AVObject> photosFromFollowedUsersQuery = new AVQuery<>("Photo");
         photosFromFollowedUsersQuery.whereMatchesKeyInQuery("user", "toUser", followquery);
         photosFromFollowedUsersQuery.whereExists("image");
         photosFromFollowedUsersQuery.include("createdAt");
 
-        AVQuery<AVObject>photosFromCurrentUserQuery = new AVQuery<>("Photo");
+        AVQuery<AVObject> photosFromCurrentUserQuery = new AVQuery<>("Photo");
         photosFromCurrentUserQuery.whereEqualTo("user", AVUser.getCurrentUser());
         photosFromCurrentUserQuery.whereExists("image");
         photosFromCurrentUserQuery.include("createdAt");
@@ -836,50 +840,50 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
             @Override
             public void done(List<AVObject> list, AVException e) {
 
-                if(list!=null){
+                if (list != null) {
 
-                postobjectArray = list;
-                Log.e("abc", "dssbs" + list);
+                    postobjectArray = list;
+                    Log.e("abc", "dssbs" + list);
 
 //                myData = getData();
 
-                Log.e("abc", "mydatasize " + postobjectArray);
+                    Log.e("abc", "mydatasize " + postobjectArray);
 
-                iadapter = new ImageAdapter(getActivity());
-                for (int i = 0; i < postobjectArray.size(); i++) {
-                    Log.e("abc", "strange " + i);
-                    final AVObject post = (AVObject) postobjectArray.get(i);
-                    Log.e("abc", "strange2 " + i);
-                    AVFile postImage = post.getAVFile("image");
-                    Log.e("abc", "strange3 " + i);
-                    PostImage[i] = (String) postImage.getUrl();
-                    Log.e("abc", "strange4 " + i);
-                    Log.e("abc", "av url " + postImage.getUrl());
+                    iadapter = new ImageAdapter(getActivity());
+                    for (int i = 0; i < postobjectArray.size(); i++) {
+                        Log.e("abc", "strange " + i);
+                        final AVObject post = (AVObject) postobjectArray.get(i);
+                        Log.e("abc", "strange2 " + i);
+                        AVFile postImage = post.getAVFile("image");
+                        Log.e("abc", "strange3 " + i);
+                        PostImage[i] = (String) postImage.getUrl();
+                        Log.e("abc", "strange4 " + i);
+                        Log.e("abc", "av url " + postImage.getUrl());
 
-                    AVUser x = (AVUser) post.get("user");
-                    AVFile profileImage = x.getAVFile("profileImage");
-                    ProfileImage[i] = (String) profileImage.getUrl();
+                        AVUser x = (AVUser) post.get("user");
+                        AVFile profileImage = x.getAVFile("profileImage");
+                        ProfileImage[i] = (String) profileImage.getUrl();
 
-                }
+                    }
 
-                new Thread(runnable).start();
+                    new Thread(runnable).start();
 
-                //lv = (ListView) view.findViewById(R.id.listView);
+                    //lv = (ListView) view.findViewById(R.id.listView);
 
 //                lv = ((ReFlashListView) view.findViewById(R.id.main_listview) );
 //                lv.setInterface(this);
 
-                //((ListView) lv).setAdapter(iadapter);
+                    //((ListView) lv).setAdapter(iadapter);
 
-                lv.setAdapter(iadapter);
-                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        //startImagePagerActivity(position);
-                    }
-                });
+                    lv.setAdapter(iadapter);
+                    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            //startImagePagerActivity(position);
+                        }
+                    });
 
-            }
+                }
             }
 
         });
@@ -902,55 +906,55 @@ public class Home extends Fragment implements ReFlashListView.IReflashListener {
         @Override
         public void run() {
             // TODO: http request.
-            if (postobjectArray.size()>0) {
+            if (postobjectArray.size() > 0) {
 
-                for(int i=0;i<postobjectArray.size();i++){
+                for (int i = 0; i < postobjectArray.size(); i++) {
 
-                AVQuery<AVObject> likequery = new AVQuery<>("Activity");
-                likequery.whereEqualTo("type", "like");
-                likequery.whereEqualTo("photo", postobjectArray.get(i));
+                    AVQuery<AVObject> likequery = new AVQuery<>("Activity");
+                    likequery.whereEqualTo("type", "like");
+                    likequery.whereEqualTo("photo", postobjectArray.get(i));
 
-                try {
-                    List<AVObject> ab = likequery.find();
-                   // Log.e("abc","thread "+ab.size());
-                    likecountArray[i] = ab.size();
-                    //iadapter.notifyDataSetChanged();
-                } catch (AVException e) {
-                    e.printStackTrace();
-                }
-
-                likequery.whereEqualTo("fromUser",AVUser.getCurrentUser());
-
-                try {
-                    List<AVObject> ab = likequery.find();
-                    if(ab.size()>0){
-                        existinglikeArr.add(i);
-
+                    try {
+                        List<AVObject> ab = likequery.find();
+                        // Log.e("abc","thread "+ab.size());
+                        likecountArray[i] = ab.size();
+                        //iadapter.notifyDataSetChanged();
+                    } catch (AVException e) {
+                        e.printStackTrace();
                     }
 
-                //iadapter.notifyDataSetChanged();
-                } catch (AVException e) {
-                    e.printStackTrace();
+                    likequery.whereEqualTo("fromUser", AVUser.getCurrentUser());
+
+                    try {
+                        List<AVObject> ab = likequery.find();
+                        if (ab.size() > 0) {
+                            existinglikeArr.add(i);
+
+                        }
+
+                        //iadapter.notifyDataSetChanged();
+                    } catch (AVException e) {
+                        e.printStackTrace();
+                    }
+
+
+                    AVQuery<AVObject> commentquery = new AVQuery<>("Activity");
+                    commentquery.whereEqualTo("type", "comment");
+                    commentquery.whereEqualTo("photo", postobjectArray.get(i));
+
+                    try {
+                        List<AVObject> ab = commentquery.find();
+                        //Log.e("abc","thread "+ab.size());
+                        commentcountArray[i] = ab.size();
+                        //iadapter.notifyDataSetChanged();
+                    } catch (AVException e) {
+                        e.printStackTrace();
+                    }
+
                 }
-
-
-                AVQuery<AVObject> commentquery = new AVQuery<>("Activity");
-                commentquery.whereEqualTo("type", "comment");
-                commentquery.whereEqualTo("photo", postobjectArray.get(i));
-
-                try {
-                    List<AVObject> ab = commentquery.find();
-                    //Log.e("abc","thread "+ab.size());
-                    commentcountArray[i] = ab.size();
-                    //iadapter.notifyDataSetChanged();
-                } catch (AVException e) {
-                    e.printStackTrace();
-                }
-
-            }
                 Message msg = new Message();
                 Bundle data = new Bundle();
-                data.putString("value","请求结果");
+                data.putString("value", "请求结果");
                 msg.setData(data);
                 handler.sendMessage(msg);
             }

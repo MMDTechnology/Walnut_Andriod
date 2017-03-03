@@ -31,7 +31,12 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
-
+    <VideoView
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:id="@+id/videoView"
+            android:layout_below="@+id/relativeLayout2"
+    />
     <maojian.android.walnut.ReFlashListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,7 +44,7 @@
         android:background="@color/whiteColor"
         android:layout_marginBottom="40dp"
         android:layout_gravity="left|top"
-        android:layout_below="@+id/relativeLayout2" />
+        android:layout_below="@+id/videoView" />
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="0dp"

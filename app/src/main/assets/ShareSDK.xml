@@ -96,8 +96,8 @@
     <Wechat
             Id="4"
             SortId="4"
-            AppId="wx4868b35061f87885"
-            AppSecret="64020361b8ec4c99936c0e3999a9f249"
+            AppId="wx127ef83489e42393"
+            AppSecret="a0ed55cda650ed3a2c76533cb5b66524"
             BypassApproval="false"
             Enable="true"/>
 
@@ -140,7 +140,7 @@
             SortId="9"
             ConsumerKey="E0oAmf72hikmyMK9dS2QUIcbm"
             ConsumerSecret="sOE8EQqKtVEb1n31ZpmZmyyuTlaeNalrtV3V0Oumqb65BO9XAv"
-            CallbackUrl="http://mob.com"
+            CallbackUrl="http://codegerms.com/callback"
             Enable="true"/>
 
     <Renren

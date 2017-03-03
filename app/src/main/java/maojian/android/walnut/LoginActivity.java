@@ -9,11 +9,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import android.widget.ImageView;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import com.avos.avoscloud.AVAnalytics;
@@ -51,7 +53,7 @@ import java.util.List;
 
 public class LoginActivity extends AnyTimeActivity {
 
-    Button loginButton;
+    ImageButton loginButton;
     ImageButton registerButton;
     ImageButton forgetPasswordButton;
     EditText userNameEditText;
@@ -76,7 +78,6 @@ public class LoginActivity extends AnyTimeActivity {
 //		TwitterAuthConfig authConfig = new TwitterAuthConfig("u9uyYYnlumipcGUU6YJSlPtno", "kc1UL9CPPI3FDVbGMlYN6PVrCeRzw7cISrJzOA2cShV1T2TzFu");
 //		Fabric.with(LoginActivity.this, new Twitter(authConfig));
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
 
         callbackManager = CallbackManager.Factory.create();
@@ -104,7 +105,7 @@ public class LoginActivity extends AnyTimeActivity {
 
         AVService.initPushService(this);
 
-        loginButton = (Button) findViewById(R.id.button_login);
+        loginButton = (ImageButton) findViewById(R.id.button_login);
         registerButton = (ImageButton) findViewById(R.id.button_register);
         forgetPasswordButton = (ImageButton) findViewById(R.id.button_forget_password);
         userNameEditText = (EditText) findViewById(R.id.editText_userName);
@@ -134,6 +135,27 @@ public class LoginActivity extends AnyTimeActivity {
         registerButton.setOnClickListener(registerListener);
         forgetPasswordButton.setOnClickListener(forgetPasswordListener);
 
+        findViewById(R.id.login_wechat).setOnClickListener(
+                new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.e("abc", "Wechat onclick");
+                        login("Wechat");
+//						LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("public_profile", "user_friends"));
+                    }
+                }
+        );
+
+        findViewById(R.id.login_weibo).setOnClickListener(
+                new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.e("abc", "SinaWeibo onclick");
+                        login("SinaWeibo");
+//						LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("public_profile", "user_friends"));
+                    }
+                }
+        );
 
         // Facebook login
         facebook_loginButton = (ImageButton) findViewById(R.id.login_facebook);
@@ -448,7 +470,42 @@ public class LoginActivity extends AnyTimeActivity {
         });
 
 //		showShare();
+        listenerRootView();
+
     }
+
+    @Override
+    public void onClickEvent(View v) {
+
+    }
+
+    private void listenerRootView() {
+        //该Activity的最外层Layout
+        final View activityRootView = findViewById(R.id.activityRoot);
+
+//给该layout设置监听，监听其布局发生变化事件
+        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+            @Override
+            public void onGlobalLayout() {
+
+                //比较Activity根布局与当前布局的大小
+                int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
+                ImageView image = (ImageView)findViewById(R.id.imageView);
+                if (heightDiff > 100) {
+                    //大小超过100时，一般为显示虚拟键盘事件
+                    findViewById(R.id.topview).setVisibility(View.GONE);
+                    image.setBackgroundResource(R.drawable.welcome);
+                } else {
+                    //大小小于100时，为不显示虚拟键盘或虚拟键盘隐藏
+                    findViewById(R.id.topview).setVisibility(View.VISIBLE);
+                    image.setBackgroundResource(R.drawable.loginlogo);
+                }
+            }
+        });
+
+    }
+
 
     /*
      * 演示执行第三方登录/注册的方法
@@ -557,7 +614,7 @@ public class LoginActivity extends AnyTimeActivity {
         public void onClick(View arg0) {
             Intent forgetPasswordIntent = new Intent(activity, ForgetPasswordActivity.class);
             startActivity(forgetPasswordIntent);
-            activity.finish();
+//            activity.finish();
         }
     };
 
@@ -567,7 +624,7 @@ public class LoginActivity extends AnyTimeActivity {
         public void onClick(View v) {
             Intent registerIntent = new Intent(activity, RegisterActivity.class);
             startActivity(registerIntent);
-            activity.finish();
+//            activity.finish();
         }
     };
 

@@ -21,10 +21,16 @@ public class ForgetPasswordActivity extends AnyTimeActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_forget_password);
-		this.getActionBar().setDisplayHomeAsUpEnabled(true);
+//		this.getActionBar().setDisplayHomeAsUpEnabled(true);
 		emailText = (EditText) findViewById(R.id.editText_forget_password_email);
 		findPasswordButton = (Button) findViewById(R.id.button_find_password);
 		findPasswordButton.setOnClickListener(findPasswordListener);
+		setTitle("Forgot Password");
+	}
+
+	@Override
+	public void onClickEvent(View v) {
+
 	}
 
 	OnClickListener findPasswordListener = new OnClickListener() {

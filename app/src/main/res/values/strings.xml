@@ -20,18 +20,20 @@
     <string name="login_button_forget_password">Forgot your password？</string>
     <string name="error_login_error">Fail to log in</string>
 
-    <string name="forget_password_find_password_button">Send email</string>
+    <string name="forget_password_find_password_button">Next</string>
     <string name="forget_password_send_email">Success</string>
     <string name="forget_password_email_error">邮件发送错误，请确认您的邮件地址</string>
 
-    <string name="register_input_user_password_again">Confirm password</string>
+    <string name="register_input_user_password_again">password(repied)</string>
     <string name="register_input_user_email">Email</string>
     <string name="error_register_password_not_equals">两次输入密码不一致，请重新输入</string>
     <string name="error_register_password_null">Password cannot be empty</string>
     <string name="error_register_user_name_null">Username cannot be empty</string>
-    <string name="error_register_email_address_null">E-mail address cannot be empty </string>
+    <string name="error_register_email_address_null">E-mail address cannot be empty</string>
     <string name="error_register_user_name_repeat">用户名已被注册，请重新填写</string>
     <string name="error_register_email_repeat">邮箱已被注册，请更换邮箱</string>
+    <string name="register_tips">By signing up,you agree to WLNUTT\'s\n Teams and conditions of Use and Privacy Policy
+    </string>
 
     <string name="pull_to_refresh_tap_label">Refresh</string>
     <string name="pull_to_refresh_pull_label">Pull to Refresh</string>
@@ -44,7 +46,9 @@
     <string name="main_view_anytime_title">正在做</string>
 
     <string name="action_logout_alert_message">确定更换账号么？之前保留的账号信息将被删除。</string>
-    <string name="action_about_app_text">关于作者:\n\thi，大家好，我是“孤独的猫咪神”。\n\t我的微博是:weibo.com/maomishen\n\t感谢您使用此APP。欢迎对本APP提出您宝贵的意见和建议。</string>
+    <string name="action_about_app_text">
+        关于作者:\n\thi，大家好，我是“孤独的猫咪神”。\n\t我的微博是:weibo.com/maomishen\n\t感谢您使用此APP。欢迎对本APP提出您宝贵的意见和建议。
+    </string>
     <string name="action_about_app_doing_list_title">我希望在“正在做”中，加入如下的事情:\n我要提意见:</string>
     <string name="action_about_app_submit_doing">提交</string>
     <string name="action_about_app_submit_doing_hint">输入意见或希望添加在“正在做”中的内容。</string>

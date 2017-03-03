@@ -491,10 +491,10 @@ public class Me extends Fragment
                 Log.e("biodebug", "debugging" + currentUser.get("bio"));
 
                 TextView me_bio_info = (TextView) rootView.findViewById(R.id.profile_bio);
-
-                Typeface face1 = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Brown-Regular.otf");
-                me_bio_info.setTypeface(face1);
-
+                if (getActivity()!=null&&getActivity().getAssets()!=null) {
+                    Typeface face1 = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Brown-Regular.otf");
+                    me_bio_info.setTypeface(face1);
+                }
                 if (currentUser.get("bio") != null) {
                     me_bio_info.setText(currentUser.get("bio") + "");
                 }
@@ -565,6 +565,7 @@ public class Me extends Fragment
                         postUrl[i] = postImage.getUrl();
 
                     }
+                    if (getActivity()==null) return;
                     discoverpostadapter = new ImageAdapter(getActivity());
                     ((GridView) listView).setAdapter(discoverpostadapter);
                     // discoverpostadapter.notifyDataSetChanged();

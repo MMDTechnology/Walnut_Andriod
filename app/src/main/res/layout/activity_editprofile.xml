@@ -1,166 +1,361 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:focusable="true"
-    android:background="@color/whiteColor"
-    android:focusableInTouchMode="true"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+              android:orientation="vertical"
+              android:focusable="true"
+              android:background="@color/whiteColor"
+              android:focusableInTouchMode="true"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:background="@color/hometop"
-        android:layout_height="50dp">
-
-        <ImageButton
-            android:layout_width="20dp"
-            android:layout_height="10dp"
-            android:id="@+id/epbackButton"
-            android:background="@drawable/back_icon"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/tabbarselectedColor"
-            android:text="Edit Profile"
-            android:textSize="22sp"
-            android:layout_alignTop="@+id/detailbackButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp" />
-        <Button
-            android:id="@+id/epsave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:background="@color/hometop"
-            android:text="Save"
-            android:layout_alignParentRight="true"
-            android:textSize="20sp"
-            android:textColor="#05ba11"/>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="180dp">
+            android:layout_height="50dp">
+
         <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/imageView2"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edit"
-            android:id="@+id/editprofile_editbutton"
-            android:textSize="16sp"
-            android:layout_marginBottom="10dp"
-            android:textColor="#37a5e1"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true" />
-        <ImageView
-            android:background="#ababab"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="1dp" />
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="210dp">
-
-        <EditText
-            android:id="@+id/epusername"
-            android:layout_marginLeft="20dp"
-            android:layout_height="40dp"
-            android:layout_width="match_parent"
-            android:textSize="16sp"
-            android:gravity="center_vertical"
-            android:hint="Username" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_height="40dp"
-            android:textSize="14sp"
-            android:hint="Gender"
-            android:id="@+id/epusergender" />
-        <EditText
-            android:layout_width="match_parent"
-            android:gravity="center_vertical"
-            android:textSize="14sp"
-            android:layout_marginLeft="20dp"
-            android:layout_height="40dp"
-            android:hint="Skateot Name"
-            android:id="@+id/epskatebotname" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:gravity="center_vertical"
-            android:textSize="14sp"
-            android:layout_marginLeft="20dp"
-            android:layout_height="40dp"
-            android:hint="Bio..."
-            android:id="@+id/epuserbio" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/epbackButton"
+                android:layout_centerVertical="true"
+                android:src="@drawable/path"
+                android:layout_alignParentLeft="true"
+                android:padding="14dp"
+        />
 
         <TextView
-            android:hint="Private Imformation"
-            android:textSize="16sp"
-            android:gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingBottom="1dp"
-            android:layout_marginTop="10dp" />
-        <ImageView
-            android:background="#ababab"
-            android:layout_width="match_parent"
-            android:layout_height="1dp" />
-    </LinearLayout>
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <EditText
-            android:layout_marginLeft="20dp"
-            android:layout_height="40dp"
-            android:layout_width="match_parent"
-            android:textSize="14sp"
-            android:gravity="center_vertical"
-            android:id="@+id/epmail"
-            android:hint="Email" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:gravity="center_vertical"
-            android:textSize="14sp"
-            android:layout_marginLeft="20dp"
-            android:layout_height="40dp"
-            android:hint="Personal Website"
-            android:id="@+id/epwebsite"
-            android:layout_below="@+id/epmail" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/report_button"
-            android:background="@drawable/reportbugbutton"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_above="@+id/logout_button" />
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/tabbarselectedColor"
+                android:text="Edit Profile"
+                android:textSize="22sp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+        />
         <Button
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="Log Out"
-            android:id="@+id/logout_button"
-            android:textSize="20sp"
-            android:textColor="#37a5e1"
-            android:background="#FFFFFF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+                android:id="@+id/epsave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/hometop"
+                android:text="Save"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textSize="20sp"
+                android:textColor="@color/ggColor"/>
     </RelativeLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+                android:orientation="vertical"
+    >
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp">
+                <ImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:id="@+id/imageView2"
+                        android:layout_marginTop="30dp"
+                        android:layout_centerHorizontal="true"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edit"
+                        android:id="@+id/editprofile_editbutton"
+                        android:textSize="16sp"
+                        android:padding="10dp"
+                        android:textColor="#37a5e1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/imageView2"
+                />
+                <ImageView
+                        android:background="#ababab"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+            </RelativeLayout>
+
+            <EditText
+                    android:id="@+id/epusername"
+                    android:layout_marginLeft="14dp"
+                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:textSize="16sp"
+                    android:hint="Username"
+                    android:background="@null"/>
+            <include layout="@layout/include_line"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="14dp"
+                    android:layout_height="45dp"
+                    android:textSize="14sp"
+                    android:hint="Gender"
+                    android:id="@+id/epusergender"
+                    android:background="@null"/>
+            <View android:layout_width="match_parent"
+                  android:layout_height="0.5dp"
+                  android:background="@color/linecolor"
+                  android:layout_marginLeft="14dp"
+            />
+            <EditText
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_height="45dp"
+                    android:hint="Spectra's Name"
+                    android:id="@+id/epskatebotname"
+                    android:background="@null"/>
+            <include layout="@layout/include_line"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_height="45dp"
+                    android:hint="info"
+                    android:id="@+id/epuserbio"
+                    android:background="@null"/>
+            <include layout="@layout/include_line"/>
+
+            <EditText
+                    android:layout_marginLeft="14dp"
+                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/epmail"
+                    android:hint="Email"
+                    android:background="@null"/>
+            <include layout="@layout/include_line"/>
+
+
+            <EditText
+                    android:layout_marginLeft="14dp"
+                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/epheight"
+                    android:hint="Height"
+                    android:background="@null"/>
+            <include layout="@layout/include_line"/>
+
+            <EditText
+                    android:layout_marginLeft="14dp"
+                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/epweight"
+                    android:hint="Weight"
+                    android:background="@null"/>
+            <include layout="@layout/include_line"/>
+
+
+            <TextView
+                    android:hint="ACCOUNT"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:background="@color/lightgray"
+                    android:paddingLeft="14dp"
+                    android:paddingBottom="@dimen/text_6"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"/>
+
+
+            <include layout="@layout/include_line"/>
+            <RelativeLayout android:id="@+id/changepassword"
+                            style="@style/PersonInfoRelativeItem">
+                <TextView
+                        style="@style/PersonInfoLeftTextItem"
+                        android:text="Change Password"/>
+                <ImageView style="@style/SettingImageview14"/>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="0.5dp"
+                      android:background="@color/linecolor"
+                      android:layout_alignParentBottom="true"
+                />
+            </RelativeLayout>
+
+            <RelativeLayout android:id="@+id/linkedaccount"
+                            style="@style/PersonInfoRelativeItem">
+                <TextView
+                        style="@style/PersonInfoLeftTextItem"
+                        android:text="Linked Account"/>
+                <ImageView style="@style/SettingImageview14"/>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="0.5dp"
+                      android:background="@color/linecolor"
+                      android:layout_alignParentBottom="true"
+                />
+            </RelativeLayout>
+
+
+            <RelativeLayout style="@style/PersonInfoRelativeItem">
+                <TextView
+                        style="@style/PersonInfoLeftTextItem"
+                        android:text="Push Notification Setting"/>
+                <ImageView
+                        style="@style/PersonInfoRightTextItem"
+                        android:src="@drawable/switch_button"
+                        android:id="@+id/pushsetting"/>
+            </RelativeLayout>
+            <include layout="@layout/include_line"/>
+
+
+            <RelativeLayout style="@style/PersonInfoRelativeItem">
+                <TextView
+                        style="@style/PersonInfoLeftTextItem"
+                        android:text="Save Original Photos"/>
+                <ImageView
+                        style="@style/PersonInfoRightTextItem"
+                        android:src="@drawable/switch_button"
+                        android:id="@+id/savephoto"/>
+            </RelativeLayout>
+            <include layout="@layout/include_line"/>
+
+            <TextView
+                    android:hint="INVITE"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:background="@color/lightgray"
+                    android:paddingLeft="14dp"
+                    android:paddingBottom="@dimen/text_6"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"/>
+
+
+            <include layout="@layout/include_line"/>
+            <RelativeLayout android:id="@+id/facebookfriends"
+                            style="@style/PersonInfoRelativeItem">
+                <TextView
+                        style="@style/PersonInfoLeftTextItem"
+                        android:text="Facebook friends"/>
+                <ImageView style="@style/SettingImageview14"/>
+
+            </RelativeLayout>
+            <include layout="@layout/include_line"/>
+
+
+            <TextView
+                    android:hint="FOLLOW PEOPLE"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:background="@color/lightgray"
+                    android:paddingLeft="14dp"
+                    android:paddingBottom="@dimen/text_6"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"/>
+
+
+            <include layout="@layout/include_line"/>
+            <RelativeLayout android:id="@+id/facebookfriendsnum"
+                            style="@style/PersonInfoRelativeItem">
+                <TextView
+                        style="@style/PersonInfoLeftTextItem"
+                        android:text="Facebook friends"/>
+                <ImageView style="@style/SettingImageview14"/>
+
+            </RelativeLayout>
+            <include layout="@layout/include_line"/>
+
+
+            <TextView
+                    android:hint="ABOUT"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:background="@color/lightgray"
+                    android:paddingLeft="14dp"
+                    android:paddingBottom="@dimen/text_6"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"/>
+
+
+            <include layout="@layout/include_line"/>
+            <RelativeLayout android:id="@+id/privacy"
+                            style="@style/PersonInfoRelativeItem">
+                <TextView
+                        style="@style/PersonInfoLeftTextItem"
+                        android:text="Privacy Policy"/>
+                <ImageView style="@style/SettingImageview14"/>
+                <View android:layout_width="match_parent"
+                      android:layout_height="0.5dp"
+                      android:background="@color/linecolor"
+                      android:layout_alignParentBottom="true"
+                />
+            </RelativeLayout>
+
+            <RelativeLayout android:id="@+id/terms"
+                            style="@style/PersonInfoRelativeItem">
+                <TextView
+                        style="@style/PersonInfoLeftTextItem"
+                        android:text="Terms"/>
+                <ImageView style="@style/SettingImageview14"/>
+            </RelativeLayout>
+            <include layout="@layout/include_line"/>
+            <View android:layout_width="match_parent" android:layout_height="50dp"
+                  android:background="@color/C7"/>
+
+            <include layout="@layout/include_line"/>
+            <RelativeLayout android:id="@+id/report_button"
+                            style="@style/PersonInfoRelativeItem">
+                <TextView
+                        style="@style/PersonInfoLeftTextItem"
+                        android:text="Report a Problem"/>
+                <ImageView style="@style/SettingImageview14"/>
+                <View android:layout_width="match_parent"
+                      android:layout_height="0.5dp"
+                      android:background="@color/linecolor"
+                      android:layout_alignParentBottom="true"
+                />
+            </RelativeLayout>
+            <TextView
+                    android:text="Clear Search History"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:paddingLeft="14dp"
+                    android:layout_height="49dp"
+                    android:textColor="@color/green"
+                    android:gravity="center_vertical"/>
+            <include layout="@layout/include_line"/>
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:textSize="14sp"-->
+            <!--android:layout_marginLeft="14dp"-->
+            <!--android:hint="Personal Website"-->
+            <!--android:id="@+id/epwebsite"-->
+            <!--android:background="@null"/>-->
+            <!--<include layout="@layout/include_line"/>-->
+
+            <!--<ImageButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/report_button"-->
+            <!--android:background="@drawable/reportbugbutton"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--/>-->
+            <View android:layout_width="match_parent" android:layout_height="20dp"
+                  android:background="@color/C7"/>
+            <include layout="@layout/include_line"/>
+            <Button
+                    android:layout_gravity="center_horizontal"
+                    android:text="Log Out"
+                    android:id="@+id/logout_button"
+                    android:textSize="20sp"
+                    android:textColor="@color/error_color"
+                    android:background="@drawable/gray_seletor"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"/>
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

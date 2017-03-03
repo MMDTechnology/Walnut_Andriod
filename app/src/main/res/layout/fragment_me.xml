@@ -85,7 +85,7 @@
                     android:layout_width="95dp"
                     android:layout_height="24dp"
                     android:layout_weight="1"
-                    android:text="Edit Profile"
+                    android:text=""
                     android:textStyle="bold"
                     android:background="@drawable/edit_profile_background"
                     android:id="@+id/editprofile_button"

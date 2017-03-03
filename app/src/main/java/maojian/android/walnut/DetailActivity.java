@@ -165,7 +165,7 @@ public class DetailActivity extends FragmentActivity {
                             getWallImages();
 
 
-                            if(detailObject.get("isVideo")==true){
+                            if(detailObject.get("isVideo")!=null){
                                 //detailPost.setVisibility(View.INVISIBLE);
                                 //detailVideo.setVisibility(View.VISIBLE);
                                 detailPlay.setVisibility(View.VISIBLE);

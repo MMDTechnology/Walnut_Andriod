@@ -10,12 +10,47 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:screenOrientation">portrait</item>
     </style>
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:screenOrientation">portrait</item>
+    </style>
+    <style name="PersonInfoRelativeItem">
+        <item name="android:background">@drawable/gray_seletor</item>
+        <item name="android:layout_height">@dimen/text_49</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">@dimen/text_14</item>
     </style>
 
 
+    <style name="PersonInfoLeftTextItem">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">@color/C3</item>
+    </style>
+
+    <!--距离右边距14dp的箭头-->
+    <style name="SettingImageview14">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">@dimen/text_14</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:src">@drawable/img_arrow</item>
+    </style>
+    <style name="PersonInfoRightTextItem">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">@dimen/text_10</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:textSize">@dimen/text_14</item>
+    </style>
 </resources>

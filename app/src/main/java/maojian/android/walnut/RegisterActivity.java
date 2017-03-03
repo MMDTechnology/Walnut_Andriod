@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -47,7 +48,7 @@ public class RegisterActivity extends AnyTimeActivity {
 
 	Button registerButton;
 	EditText userName;
-	EditText userEmail;
+//	EditText userEmail;
 	EditText userPassword;
 	EditText userPasswordAgain;
 	private ProgressDialog progressDialog;
@@ -62,8 +63,9 @@ public class RegisterActivity extends AnyTimeActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_register);
-		this.getActionBar().setDisplayHomeAsUpEnabled(true);
+//		this.getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		callbackManager = CallbackManager.Factory.create();
 
@@ -71,7 +73,7 @@ public class RegisterActivity extends AnyTimeActivity {
 
 		registerButton = (Button) findViewById(R.id.button_i_need_register);
 		userName = (EditText) findViewById(R.id.editText_register_userName);
-		userEmail = (EditText) findViewById(R.id.editText_register_email);
+//		userEmail = (EditText) findViewById(R.id.editText_register_email);
 		userPassword = (EditText) findViewById(R.id.editText_register_userPassword);
 		userPasswordAgain = (EditText) findViewById(R.id.editText_register_userPassword_again);
 
@@ -83,13 +85,13 @@ public class RegisterActivity extends AnyTimeActivity {
 						.equals(userPasswordAgain.getText().toString())) {
 					if (!userPassword.getText().toString().isEmpty()) {
 						if (!userName.getText().toString().isEmpty()) {
-							if (!userEmail.getText().toString().isEmpty()) {
-								progressDialogShow();
-								register();
-							} else {
-								showError(activity
-										.getString(R.string.error_register_email_address_null));
-							}
+//							if (!userEmail.getText().toString().isEmpty()) {
+//								progressDialogShow();
+//								register();
+//							} else {
+//								showError(activity
+//										.getString(R.string.error_register_email_address_null));
+//							}
 						} else {
 							showError(activity
 									.getString(R.string.error_register_user_name_null));
@@ -417,6 +419,11 @@ public class RegisterActivity extends AnyTimeActivity {
 	}
 
 	@Override
+	public void onClickEvent(View v) {
+
+	}
+
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == android.R.id.home) {
 			Intent LoginIntent = new Intent(this, LoginActivity.class);
@@ -502,7 +509,7 @@ public class RegisterActivity extends AnyTimeActivity {
     };
     final String username = userName.getText().toString();
     final String password = userPassword.getText().toString();
-    final String email = userEmail.getText().toString();
+//    final String email = userEmail.getText().toString();
 
 //	Resources res=getResources();
 //	Bitmap bmp= BitmapFactory.decodeResource(res, R.drawable.notloading);
@@ -518,7 +525,7 @@ public class RegisterActivity extends AnyTimeActivity {
 //        e.printStackTrace();
 //    }
 
-        AVService.signUp(username, password, email,Environment.getExternalStorageDirectory() + "/walnutprofile.png", signUpCallback);
+        AVService.signUp(username, password, "email",Environment.getExternalStorageDirectory() + "/walnutprofile.png", signUpCallback);
 	}
 
   private void progressDialogDismiss() {

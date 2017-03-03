@@ -42,6 +42,7 @@ import com.nostra13.universalimageloader.core.display.CircleBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
+import maojian.android.walnut.base.DialogClass;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -239,6 +240,8 @@ public class Discover extends Fragment  implements
 //                //startImagePagerActivity(position);
 //            }
 //        });
+//        DialogClass.LoginDialog(getActivity());
+
         return rootView;
         //return inflater.inflate(R.layout.fragment_discover, container, false);
 
